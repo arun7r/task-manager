@@ -20,15 +20,20 @@ export class TaskViewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params:Params)=>{
-        console.log("params:",params);
-        this.taskService.getTasks(params['listId']).subscribe((tasks:any)=>{
-          this.tasks = tasks;
-        })
+        if(params['listId']){
+          console.log("params:",params);
+          this.taskService.getTasks(params['listId']).subscribe((tasks:any)=>{
+            this.tasks = tasks;
+          })
+        }
+        else{
+          this.tasks=undefined;
+        }
+       
       }
     )
 
     this.taskService.getLists().subscribe((lists: any) => {
-      this.router.navigateByUrl(`lists/${lists[0]._id}`) //loads when first time starting the app
       console.log(lists);
       this.lists = lists;
     })

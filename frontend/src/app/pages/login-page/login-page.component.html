@@ -1,0 +1,20 @@
+<div class="centered-content">
+    <div class="login-box text-primary">
+        <h1 class="title">Login</h1>
+        <form>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input #emailInput type="email" class="form-control bg-light"  placeholder="Email">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input #pwInput type="password" class="form-control bg-light"  placeholder="Password">
+            </div>
+            <div class="float-end">
+                <button type="button" class="btn btn-primary text-white" (click)="onLoginButtonClicked(emailInput.value, pwInput.value)">Login</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+

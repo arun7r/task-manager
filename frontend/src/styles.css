@@ -9,7 +9,7 @@ light: #f8f8f8;
 */
 
 
-html {
+html,body {
     background: linear-gradient(to right top, #44ddd0, #27d7a1);
 }
 
@@ -32,4 +32,11 @@ html, body {
     background: white;
     border-radius: 5px;
     padding: 35px;
+}
+
+.title{
+    font-family: 'Lato';
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }

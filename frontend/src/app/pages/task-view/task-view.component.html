@@ -14,14 +14,32 @@
 
         </div>
         <div class="task-list-container bg-light">
-            <div  *ngIf="tasks">
-                <h1 class="title text-primary">
-                    Tasks
-                </h1>
-    
+            <div *ngIf="tasks">
+
+                <div class="top-bar">
+                    <h1 class="title text-primary">
+                        Tasks
+                    </h1>
+                    
+                    <div class="dropdown float-end">
+                        <button class="btn btn-light fas fa-cog" type="button" data-bs-toggle="dropdown"></button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a [routerLink]="['/edit-list', selectedListId]" class="dropdown-item">Edit</a></li>
+                          <li><a (click)="onDeleteListClick()"  class="dropdown-item text-danger">Delete</a></li>              
+                        </ul>
+                    </div>
+        
+                </div>
+
                 <!-- Task Elements-->
                 <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)"  [ngClass]="{ 'completed': task.completed }" >
-                    <p>{{task.title}}</p>
+                    <div class="task-text">
+                        <p>{{ task.title }}</p>
+                    </div>
+                    <div class="task-buttons">
+                        <button [routerLink]="['/lists', selectedListId, 'edit-task', task._id]" class="btn btn-light fas fa-edit"></button>
+                        <button (click)="onDeleteTaskClick(task._id)" class="btn btn-danger fas fa-trash ms-1"></button>
+                    </div>
                 </div>
                
                 <h3 class="empty-state-text mt-4" *ngIf="tasks.length===0">There are no tasks here! Click the add button to create a new task.</h3>

@@ -14,6 +14,7 @@ export class TaskViewComponent implements OnInit {
   lists:any;
   tasks:any;
 
+  selectedListId: any;
 
   constructor(private taskService: TaskService, private route: ActivatedRoute, private router:Router) { }
 
@@ -21,7 +22,7 @@ export class TaskViewComponent implements OnInit {
     this.route.params.subscribe(
       (params:Params)=>{
         if(params['listId']){
-          console.log("params:",params);
+          this.selectedListId = params['listId'];
           this.taskService.getTasks(params['listId']).subscribe((tasks:any)=>{
             this.tasks = tasks;
           })
@@ -34,7 +35,6 @@ export class TaskViewComponent implements OnInit {
     )
 
     this.taskService.getLists().subscribe((lists: any) => {
-      console.log(lists);
       this.lists = lists;
     })
 
@@ -46,6 +46,19 @@ export class TaskViewComponent implements OnInit {
       // the task has been set to completed successfully
       console.log("Completed successully!");
       task.completed = !task.completed;
+    })
+  }
+
+  onDeleteListClick() {
+    this.taskService.deleteList(this.selectedListId).subscribe((res: any) => {
+      this.router.navigate(['/lists']);
+      console.log(res);
+    })
+  }
+
+  onDeleteTaskClick(id: string) {
+    this.taskService.deleteTask(this.selectedListId, id).subscribe((res: any) => {
+      this.tasks = this.tasks.filter((val: Task) => val._id !== id);      console.log(res);
     })
   }
 

@@ -1,6 +1,7 @@
 <div class="centered-content">
     <div class="white-box text-primary">
-        <h1 class="title">Login</h1>
+        <h1 class="title">Sign up</h1>
+        <form>
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                 <input #emailInput type="email" class="form-control bg-light"  placeholder="Email">
@@ -10,12 +11,13 @@
                 <input #pwInput type="password" class="form-control bg-light"  placeholder="Password">
             </div>
             <div class="float-end">
-                <button type="button" class="btn btn-primary text-white" (click)="onLoginButtonClicked(emailInput.value, pwInput.value)">Login</button>
+                <button type="button" class="btn btn-primary text-white"  (click)="onSignupButtonClicked(emailInput.value, pwInput.value)">Sign up</button>
             </div>
-            
-    <br>
-    <p class="text-secondary mt-5 mb-0">Don't have an account? <a routerLink="/signup">Sign up</a> now!</p>
+        </form>
 
+        <br>
+        <p class="text-secondary mt-5 mb-0">Already have an account? <a routerLink="/login">Login</a> now!</p>
+    
     </div>
 </div>
 

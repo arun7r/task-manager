@@ -10,6 +10,8 @@ import { shareReplay, tap } from 'rxjs/operators'; //to avoid multiple subscribe
 })
 export class AuthService {
 
+  isLoggedIn = false; //login check
+
   constructor(private webService: WebRequestService, private router: Router, private http: HttpClient) { }
 
   login(email: string, password: string) {
@@ -38,6 +40,9 @@ export class AuthService {
 
   
   logout() {
+
+    localStorage.setItem('isLoggedIn','false');
+
     this.removeSession();
 
     this.router.navigate(['/login']);
@@ -91,6 +96,7 @@ export class AuthService {
     )
    
   }
+
 
 
 }

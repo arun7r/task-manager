@@ -10,7 +10,9 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class SignupPageComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { 
+    localStorage.setItem('isLoggedIn','false');
+  }
 
   ngOnInit(): void {
   }
@@ -19,7 +21,13 @@ export class SignupPageComponent implements OnInit {
   onSignupButtonClicked(email: string, password: string) {
     this.authService.signup(email, password).subscribe((res: HttpResponse<any>) => {
       console.log(res);
-      this.router.navigate(['/lists']);
+
+      localStorage.setItem('isLoggedIn','true'); //login check
+      
+      this.router.navigate(['/lists'])
+      .then(() => {
+        window.location.reload();
+      })
     },
     (error) => {
       if (error.status === 400) {

@@ -14,13 +14,20 @@ export class LoginPageComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    localStorage.setItem('isLoggedIn','false');
   }
 
   onLoginButtonClicked(email: string, password: string) {
     this.authService.login(email, password).subscribe((res: HttpResponse<any>) => {
       if (res.status === 200) {
         // we have logged in successfully
-        this.router.navigate(['/lists']);
+
+        localStorage.setItem('isLoggedIn','true'); //login check
+
+        this.router.navigate(['/lists'])
+        .then(() => {
+          window.location.reload();
+        })
       }
       console.log(res);
 

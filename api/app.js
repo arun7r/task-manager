@@ -319,7 +319,6 @@ app.post('/users', (req, res) => {
     })
 })
 
-
 /**
  * POST /users/login
  * Purpose: Login
@@ -379,3 +378,14 @@ app.listen(3000,()=>{
 })
 
 
+
+//user email display
+
+app.get('/users/:id', authenticate, (req, res) => {
+    //delete the specified list
+   User.findOne({
+       _id: req.params.id,
+   }).then((user) => {
+       res.send(user);
+   })
+})

@@ -1,0 +1,31 @@
+<div class="header">
+
+    <!-- navbar -->
+
+    <nav class="navbar sticky-top navbar-expand bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <div>
+                <a class="navbar-brand" (click)="homePage()">Tasks & Notes</a>
+            </div>
+
+            <div class="displayName" *ngIf="isLoggedin==[true]">
+                <h3>Welcome, {{uname | titlecase}}</h3>
+            </div>
+
+            <div class="displayEmail">
+                <h5>{{email}}</h5>
+            </div>
+
+            <div class="logOut" *ngIf="isLoggedin==[true]">
+                <button class="btn btn-dark logoutBtn float-end" (click)="logOutBtn()">
+                    Log Out
+                    <i class="fas fa-right-from-bracket ms-1"></i>
+                </button>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+</div>

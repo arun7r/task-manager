@@ -2,28 +2,30 @@
 
     <!-- navbar -->
 
-    <nav class="navbar sticky-top navbar-expand bg-body-tertiary" data-bs-theme="dark">
+    <nav class="navbar sticky-top navbar-expand border-bottom" data-bs-theme="dark">
         <div class="container-fluid">
-            <div>
-                <a class="navbar-brand" (click)="homePage()">Tasks & Notes</a>
+            <div class="navbar-brand me-auto">
+                <img class="navbar-logo" (click)="homePage()" src="./assets/note.png">
+                <a class="navbar-brand ms-3" (click)="homePage()">Tasks | To-Do | Notes</a>
             </div>
 
-            <div class="displayName" *ngIf="isLoggedin==[true]">
-                <h3>Welcome, {{uname | titlecase}}</h3>
+            <div class="displayName mx-auto" *ngIf="isLoggedin==[true]">
+                <h5 class="float-start me-1">Welcome</h5>
+                <h3 class="float-end ms-1">{{uname | titlecase}}</h3>
             </div>
 
-            <div class="displayEmail">
-                <h5>{{email}}</h5>
+            <div class="displayEmail ms-auto" *ngIf="isLoggedin==[true]">
+                    <h5><i class="fas fa-user"></i>&nbsp;&nbsp;{{email}}</h5>
             </div>
 
-            <div class="logOut" *ngIf="isLoggedin==[true]">
-                <button class="btn btn-dark logoutBtn float-end" (click)="logOutBtn()">
+            <div class="logOut ms-3" *ngIf="isLoggedin==[true]">
+                <button class="btn logoutBtn" (click)="logOutBtn()">
                     Log Out
                     <i class="fas fa-right-from-bracket ms-1"></i>
                 </button>
             </div>
 
-        </div>
+        </div>-
 
     </nav>
 

@@ -1,7 +1,7 @@
 <div class="centered-content">
     <div class="task-manager-container">
         <div class="sidebar bg-white">
-            <h1 class="title text-primary">
+            <h1 class="title">
                 Lists
             </h1>
             <div class="list-menu">
@@ -10,14 +10,14 @@
                 </a>
             </div>
 
-            <button type="button" routerLink="/new-list" class="newListBtn btn btn-primary text-white">+ New List</button>
+            <button type="button" routerLink="/new-list" class="newListBtn btn text-white">+ New List</button>
 
         </div>
         <div class="task-list-container bg-light">
             <div *ngIf="tasks">
 
                 <div class="top-bar">
-                    <h1 class="title text-primary">
+                    <h1 class="title">
                         Tasks
                     </h1>
                     
@@ -44,7 +44,7 @@
                
                 <h3 class="empty-state-text mt-4" *ngIf="tasks.length===0">There are no tasks here! Click the add button to create a new task.</h3>
 
-                <button routerLink="./new-task" class="circle-add-button btn btn-primary">
+                <button routerLink="./new-task" class="circle-add-button">
                     <img src="../../../assets/plus-icon.svg" alt="">
                 </button>
             </div>

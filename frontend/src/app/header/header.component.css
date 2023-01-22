@@ -1,4 +1,30 @@
+.displayName{
+    padding-left:0%;
+}
 
-/* .displayEmail{
+.logoutBtn{
+    background-color: transparent;
+    border-color: white;
+    color: white;
+}
 
-} */
+.logoutBtn:hover{
+    background-color: rgba(238, 238, 238, 0.301);
+}
+
+.navbar-logo{
+    width: 50px;
+    cursor: pointer;
+}
+
+.displayName {
+    width: 100px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar{
+    border-bottom-color: #2B2459 !important;
+    font-family: 'Lato', sans-serif;
+}

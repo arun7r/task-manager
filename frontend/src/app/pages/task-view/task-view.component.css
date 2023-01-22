@@ -5,6 +5,7 @@
     height: 100%;
     max-width: 1000px;
     max-height: 680px;
+    margin-top:-100px;
 }
 
 .sidebar{
@@ -65,8 +66,8 @@
 }
 
 .list-menu .list-menu-item.active{
-    background-color: #cff8ef;
-    color: rgb(0, 100, 80);
+    background-color: #dfcff8;
+    color: rgb(47, 0, 100);
 }
 
 .task{
@@ -120,10 +121,24 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    border-color: #6414ee;
+    background-color: #6414ee;
 }
 
 .empty-state-text {
     font-size: 20px;
     color: #777;
     text-align: center;
+}
+
+.newListBtn{
+    background-color: #6414ee;
+}
+
+.newListBtn:hover{
+    background-color: #6414ee9c;
+}
+
+.task.completed{
+    background-color: rgba(223, 216, 231, 0.205);
 }

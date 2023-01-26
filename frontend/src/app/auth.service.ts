@@ -10,7 +10,6 @@ import { shareReplay, tap } from 'rxjs/operators'; //to avoid multiple subscribe
 })
 export class AuthService {
 
-  isLoggedIn = false; //login check
 
   constructor(private webService: WebRequestService, private router: Router, private http: HttpClient) { }
 
